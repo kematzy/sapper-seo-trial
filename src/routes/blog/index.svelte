@@ -1,34 +1,44 @@
 <script context="module">
-	export function preload({ params, query }) {
-		return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
-			return { posts };
-		});
-	}
+  export function preload({ params, query }) {
+    return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
+      return { posts };
+    });
+  }
 </script>
 
 <script>
-	export let posts;
+  export let posts;
+  import SeoTags from '../../components/SeoTags.svelte'
+    import PageHeader from '../../components/PageHeader.svelte'
+
+  let dpage = {
+    title: "Blog",
+    description: "Blog page description",
+    titleSuffix: " | Sapper SEO Trial [BLOG]"
+  }
 </script>
 
 <style>
-	ul {
-		margin: 0 0 1em 0;
-		line-height: 1.5;
-	}
+  ul {
+    margin: 0 0 1em 0;
+    line-height: 1.5;
+  }
 </style>
 
 <svelte:head>
-	<title>Blog</title>
+  <SeoTags {dpage} />
 </svelte:head>
 
-<h1>Recent posts</h1>
+<PageHeader {dpage} />
+
+<h2>Recent posts</h2>
 
 <ul>
-	{#each posts as post}
-		<!-- we're using the non-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
-		<li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li>
-	{/each}
+  {#each posts as post}
+    <!-- we're using the non-standard `rel=prefetch` attribute to
+        tell Sapper to load the data for the page as soon as
+        the user hovers over the link or taps it, instead of
+        waiting for the 'click' event -->
+    <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li>
+  {/each}
 </ul>
