@@ -1,5 +1,46 @@
 # Sapper SEO Trial
 
+Trying to learn how to DRY out the SEO tags in a Sapper app's `<svelte:head>`.
+
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7cc8d655-28e6-4ee2-943d-2fb43fa5723c/deploy-status)](https://app.netlify.com/sites/sapper-seo-trial-v1/deploys)
+
+
+
+## IMPORTANT INFORMATION
+
+The current code somehow **appends the SEO tags to the `<head>` sections as you navigate the website**. 
+
+So if you navigate from the **Home Page**, to the **About Page**, to the **Blog Page** and then back to the **Home Page**, then the `<head>` content would look something like this:
+
+```html
+<head>
+  <!-- snip -->
+  <title>About | Hardcoded Title</title> 
+  <meta name="description" content="Home page description"> 
+  <meta property="og:title" content="Sapper SEO Trial"> 
+  <meta property="og:description" content="Home page description"> 
+  <meta property="twitter:title" content="Sapper SEO Trial"> 
+  <meta property="twitter:description" content="Home page description">
+
+  <title>About | Sapper SEO Trial</title> 
+  <meta name="description" content="About  page description"> 
+  <!-- removed og: & twitter: tags for better clarity -->
+
+  <title>Blog | Sapper SEO Trial [BLOG]</title> 
+  <meta name="description" content="Blog page description"> 
+  <!-- removed og: & twitter: tags for better clarity -->
+
+  <title>Sapper SEO Trial | Sapper SEO Trial [HOME]</title> 
+  <meta name="description" content="Home page description"> 
+  <!-- removed og: & twitter: tags for better clarity -->
+  <!-- snip -->
+</head>
+```
+
+If you know how to fix this, then please create an issue / pull request with the fix.
+
+------
 
 
 
