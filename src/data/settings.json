@@ -1,0 +1,14 @@
+{
+  "siteDescription": "Default Site Description from Settings",
+  "siteImageAlt": "Default Site Image Alt",
+  "siteImageHeight": "600",
+  "siteImageSrc": "/img/social-share.png",
+  "siteImageWidth": "1200",
+  "siteName": "sapper-seo-trial-v1.netlify.com",
+  "siteTitle": "Default Site Title",
+  "siteTitleSuffix": "Sapper SEO Trial [Settings]",
+  "siteLocale": "en",
+  "ogType": "website",
+  "twitterCard": "summary",
+  "twitterSite": "@sveltejs"
+}
