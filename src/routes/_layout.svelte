@@ -1,5 +1,6 @@
 <script>
 	import Nav from '../components/Nav.svelte';
+	import SeoTags from '../components/SeoTags.svelte';
 
 	export let segment;
 </script>
@@ -19,6 +20,10 @@
 		color: #777;
 	}
 </style>
+
+<svelte:head>
+	<SeoTags />
+</svelte:head>
 
 <Nav {segment}/>
 
