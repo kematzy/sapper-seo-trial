@@ -1,4 +1,5 @@
 <script context="module">
+	import { seo } from '../../stores.js'
 	export async function preload({ params, query }) {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
@@ -6,6 +7,10 @@
 		const data = await res.json();
 
 		if (res.status === 200) {
+			seo.update(state => {
+				state.title = data.title
+				return state
+			})
 			return { post: data };
 		} else {
 			this.error(res.status, data.message);
@@ -15,11 +20,6 @@
 
 <script>
 	export let post;
-	import { seo } from '../../stores.js'
-  seo.update(state => {
-    state.title = post.title
-    return state
-  })
 </script>
 
 <style>

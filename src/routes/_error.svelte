@@ -1,13 +1,19 @@
+<script context="module">
+	import { seo } from '../stores.js'
+
+	export async function preload() {
+		seo.update(state => {
+			state.title = "Error: {status}"
+			state.description = "Error page description"
+			return state
+		});
+	}
+</script>
+
 <script>
-  import { seo } from '../stores.js'
 	export let status;
 	export let error;
 
-  seo.update(state => {
-    state.title = "Error: {status}"
-    state.description = "Error page description"
-    return state
-	})
 	const dev = process.env.NODE_ENV === 'development';
 </script>
 
