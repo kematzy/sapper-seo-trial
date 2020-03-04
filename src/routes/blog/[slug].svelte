@@ -15,6 +15,7 @@
 
 <script>
 	export let post;
+	import { seo } from '../../stores.js'
 </script>
 
 <style>
@@ -52,10 +53,6 @@
 		margin: 0 0 0.5em 0;
 	}
 </style>
-
-<svelte:head>
-	<title>{post.title}</title>
-</svelte:head>
 
 <h1>{post.title}</h1>
 

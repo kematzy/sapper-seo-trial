@@ -1,19 +1,9 @@
 <script>
-  import SeoTags from '../components/SeoTags.svelte'
+  import { seo } from '../stores.js'
   import PageHeader from '../components/PageHeader.svelte'
 
-  let dpage = {
-    title: "About",
-    description: "About  page description",
-    titleSuffix: " | Sapper SEO Trial"
-  }
 </script>
 
-<svelte:head>
-  <title>About | Hardcoded Title</title>
-  <SeoTags {dpage} />
-</svelte:head>
-
-<PageHeader {dpage} />
+<PageHeader dpage="{$seo}" />
 
 <p>This is the 'about' page. There's not much here.</p>

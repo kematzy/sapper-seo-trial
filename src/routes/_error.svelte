@@ -1,13 +1,8 @@
 <script>
+  import { seo } from '../stores.js'
 	export let status;
 	export let error;
-  import SeoTags from '../components/SeoTags.svelte'
 
-  let dpage = {
-    title: "Error: {status}",
-    description: "Error page description",
-    titleSuffix: " | Sapper SEO Trial [Error]"
-	}
 	const dev = process.env.NODE_ENV === 'development';
 </script>
 
@@ -32,11 +27,6 @@
 		}
 	}
 </style>
-
-<svelte:head>
-  <title>{status + ' | Hardcoded Title'}</title>
-  <SeoTags {dpage} />
-</svelte:head>
 
 <h1>{status}</h1>
 

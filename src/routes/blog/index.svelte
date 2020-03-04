@@ -7,15 +7,10 @@
 </script>
 
 <script>
-  export let posts;
-  import SeoTags from '../../components/SeoTags.svelte'
-    import PageHeader from '../../components/PageHeader.svelte'
+  import { seo } from '../../stores.js'
+  import PageHeader from '../../components/PageHeader.svelte'
 
-  let dpage = {
-    title: "Blog",
-    description: "Blog page description",
-    titleSuffix: " | Sapper SEO Trial [BLOG]"
-  }
+  export let posts;
 </script>
 
 <style>
@@ -25,11 +20,7 @@
   }
 </style>
 
-<svelte:head>
-  <SeoTags {dpage} />
-</svelte:head>
-
-<PageHeader {dpage} />
+<PageHeader dpage="{$seo}" />
 
 <h2>Recent posts</h2>
 
