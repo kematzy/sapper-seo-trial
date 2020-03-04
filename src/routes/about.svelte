@@ -1,12 +1,17 @@
-<script>
+<script context="module">
   import { seo } from '../stores.js'
-  import PageHeader from '../components/PageHeader.svelte'
 
-  seo.update(state => {
-    state.title = "About"
-    state.description = "About page description"
-    return state
-  })
+  export async function preload() {
+    seo.update(state => {
+      state.title = "About"
+      state.description = "About page description"
+      return state
+    });
+  }
+</script>
+
+<script>
+  import PageHeader from '../components/PageHeader.svelte'
 </script>
 
 <PageHeader dpage="{$seo}" />

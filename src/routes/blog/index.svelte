@@ -1,20 +1,23 @@
 <script context="module">
+  import { seo } from '../../stores.js'
+
   export function preload({ params, query }) {
+    
+    seo.update(state => {
+      state.title = "Blog"
+      state.description = "Blog page description"
+      return state
+    });
+
     return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
       return { posts };
     });
   }
 </script>
 
-<script>
-  import { seo } from '../../stores.js'
-  import PageHeader from '../../components/PageHeader.svelte'
-  seo.update(state => {
-    state.title = "Blog"
-    state.description = "Blog page description"
-    return state
-  });
 
+<script>
+  import PageHeader from '../../components/PageHeader.svelte'
   export let posts;
 </script>
 
