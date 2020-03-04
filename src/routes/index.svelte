@@ -33,21 +33,14 @@
 </style>
 
 <script>
-  import SeoTags from '../components/SeoTags.svelte'
+  import { seo } from '../stores.js'
   import PageHeader from '../components/PageHeader.svelte'
 
-  let dpage = {
-    title: "Sapper SEO Trial",
-    description: "Home page description",
-    titleSuffix: " | Sapper SEO Trial [HOME]"
-  }
 </script>
 
-<svelte:head>
-  <SeoTags {dpage} />
-</svelte:head>
+<PageHeader dpage="{$seo}" />
 
-<PageHeader {dpage} />
+<h2>Sapper SEO stores version</h2>
 
 <figure>
   <img alt='Borat' src='great-success.png'>
