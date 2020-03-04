@@ -3,6 +3,11 @@
 	export let status;
 	export let error;
 
+  seo.update(state => {
+    state.title = "Error: {status}"
+    state.description = "Error page description"
+    return state
+	})
 	const dev = process.env.NODE_ENV === 'development';
 </script>
 

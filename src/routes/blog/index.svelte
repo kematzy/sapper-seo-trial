@@ -9,6 +9,11 @@
 <script>
   import { seo } from '../../stores.js'
   import PageHeader from '../../components/PageHeader.svelte'
+  seo.update(state => {
+    state.title = "Blog"
+    state.description = "Blog page description"
+    return state
+  });
 
   export let posts;
 </script>

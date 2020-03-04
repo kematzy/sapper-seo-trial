@@ -16,6 +16,10 @@
 <script>
 	export let post;
 	import { seo } from '../../stores.js'
+  seo.update(state => {
+    state.title = post.title
+    return state
+  })
 </script>
 
 <style>
