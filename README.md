@@ -1,50 +1,62 @@
 # Sapper SEO Trial
 
-Trying to learn how to DRY out the SEO tags in a Sapper app's `<svelte:head>`.
+DRY-ing up SEO tags generation in Sapper / Svelte apps
 
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7cc8d655-28e6-4ee2-943d-2fb43fa5723c/deploy-status)](https://app.netlify.com/sites/sapper-seo-trial-v1/deploys)
 
 
+## About This Example
 
-## IMPORTANT INFORMATION
+**Please Note!**
 
-The current code somehow **appends the SEO tags to the `<head>` sections as you navigate the website**. 
+This is the solution I came up with, after some advice, and it may be entirely wrong. I'm just 
+learning Sapper/Svelte at the moment, so I'm 100% certain that things could be much improved.
 
-So if you navigate from the **Home Page**, to the **About Page**, to the **Blog Page** and then back to the **Home Page**, then the `<head>` content would look something like this:
+### How does it work?
 
-```html
-<head>
-  <!-- snip -->
-  <title>About | Hardcoded Title</title> 
-  <meta name="description" content="Home page description"> 
-  <meta property="og:title" content="Sapper SEO Trial"> 
-  <meta property="og:description" content="Home page description"> 
-  <meta property="twitter:title" content="Sapper SEO Trial"> 
-  <meta property="twitter:description" content="Home page description">
+It's fairly easy to use and understand by just looking at the code. 
 
-  <title>About | Sapper SEO Trial</title> 
-  <meta name="description" content="About  page description"> 
-  <!-- removed og: & twitter: tags for better clarity -->
+But these are the basic steps:
 
-  <title>Blog | Sapper SEO Trial [BLOG]</title> 
-  <meta name="description" content="Blog page description"> 
-  <!-- removed og: & twitter: tags for better clarity -->
+1. The main part of the solution is the `SeoTags.svelte` component that generates the HTML output tags.
 
-  <title>Sapper SEO Trial | Sapper SEO Trial [HOME]</title> 
-  <meta name="description" content="Home page description"> 
-  <!-- removed og: & twitter: tags for better clarity -->
-  <!-- snip -->
-</head>
-```
+2. The `SeoTags.svelte` component loads the data from the `./stores.js` store, which in turn kind 
+of depends upon a `./data/settings.json` file for all global default values.
 
-If you know how to fix this, then please create an issue / pull request with the fix.
+3. The `SeoTags.svelte` component is loaded in the `./routes/_layout.svelte` and added to a 
+   `<svelte:head>` section.
+
+4. To change the SEO output - from default output -   on each page you need to
+
+    ```js
+    import { seo } from './stores.js'
+    ```
+    and 
+    then update the required SEO fields in the `<script>` tag like this:
+
+    ```js
+    seo.update(state => {
+      state.title = 'New Title'
+      state.description = 'New description'
+      return state
+    })
+    ```
+
+5. That's basically all you need to do.
+
+<br>
+
+If you know how to improve / simplify this solution, then please create an issue / pull request with the fix/improvements.
+
+<br>
 
 ------
 
+<br>
 
 
-A version of the default [Sapper](https://github.com/sveltejs/sapper) template, available for Rollup and webpack.
+Based upon the a version of the default [Sapper](https://github.com/sveltejs/sapper) template, available for Rollup and webpack.
 
 
 ## Getting started
