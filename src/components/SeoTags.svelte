@@ -12,9 +12,9 @@
 <meta property="og:image:alt" content="{$seo.image.alt}" />
 <meta property="og:image:width" content="{$seo.image.width}"/>
 <meta property="og:image:height" content="{$seo.image.height}" />
-<meta property="og:site_name" content="{$seo.siteName}" />
+<meta property="og:site_name" content="{$seo.name}" />
 <meta property="og:type" content="{$seo.ogType}" />
-<meta property="og:locale" content="{$seo.siteLocale}" />
+<meta property="og:locale" content="{$seo.locale}" />
 
 <meta property="twitter:title" content="{$seo.title}" />
 <meta property="twitter:description" content="{$seo.description}" />
@@ -23,5 +23,5 @@
 <meta property="twitter:image" content="{$seo.image.src}" />
 <meta property="twitter:image:alt" content="{$seo.image.alt}" />
 <meta name="twitter:card" content="{$seo.twitterCard || 'summary'}" />
-<meta name="twitter:site" content="{$seo.twitter}" />
+<meta name="twitter:site" content="{$seo.twitterSite}" />
 <!-- /END SEO -->
