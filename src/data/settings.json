@@ -2,7 +2,7 @@
   "siteDescription": "Default Site Description from Settings",
   "siteImageAlt": "Default Site Image Alt",
   "siteImageHeight": "600",
-  "siteImageSrc": "/img/social-share.png",
+  "siteImageSrc": "https://svelte.dev/images/twitter-card.png",
   "siteImageWidth": "1200",
   "siteName": "sapper-seo-trial-v1.netlify.com",
   "siteTitle": "Default Site Title",
