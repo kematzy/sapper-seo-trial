@@ -1,14 +1,12 @@
 <script context="module">
   import { seo } from '../../stores.js'
 
-  export function preload({ params, query }) {
-    
-    seo.update(state => {
+  export async function preload({ params, query }) {
+    await seo.update(state => {
       state.title = "Blog"
       state.description = "Blog page description"
       return state
     });
-
     return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
       return { posts };
     });
