@@ -19,7 +19,7 @@
   import { seo } from '../stores.js'
 
   export async function preload() {
-    seo.update(state => {
+    await seo.update(state => {
       state.title = "Sapper SEO Trial"
       state.description = "Home page description"
       return state

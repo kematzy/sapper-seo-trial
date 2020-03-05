@@ -7,7 +7,7 @@
 		const data = await res.json();
 
 		if (res.status === 200) {
-			seo.update(state => {
+			await seo.update(state => {
 				state.title = data.title
 				return state
 			})
